@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Analytics Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 62.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Smooth fade animation for view switching */
+        .fade-in {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-slate-800 min-h-screen flex flex-col font-sans">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-white border-b border-gray-200 shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center cursor-pointer" onclick="renderHome()">
+                    <div class="flex-shrink-0 flex items-center text-indigo-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/>
+                        </svg>
+                        <span class="ml-2 font-bold text-xl tracking-tight">AnalyticsPortfolio</span>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button onclick="renderHome()" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                        Home
+                    </button>
+                    <button onclick="scrollToContact()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors">
+                        Contact Me
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area (Dynamic) -->
+    <main id="app-root" class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 fade-in">
+        <!-- Content will be injected here by JavaScript -->
+    </main>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-gray-50 border-t border-gray-200 py-16 mt-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Let's <span class="text-indigo-600">Connect</span></h2>
+                <div class="h-1 w-20 bg-indigo-600 mx-auto rounded-full mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    I'm passionate about leveraging data analytics to solve business challenges. 
+                    Let's connect to discuss opportunities in data analysis, visualization, or BI projects!
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                
+                <!-- Left Column: Contact Info -->
+                <div class="space-y-8">
+                    <h3 class="text-2xl font-bold text-gray-900">Get In Touch</h3>
+                    
+                    <div class="space-y-6">
+                        <!-- Email Item -->
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-indigo-600 text-white">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-base font-medium text-gray-900">Email</p>
+                                <a href="mailto:harshal.sanjivpatil2000@gmail.com" class="mt-1 text-gray-500 hover:text-indigo-600 transition-colors block break-all">
+                                    harshal.sanjivpatil2000@gmail.com
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Resume Item -->
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-indigo-600 text-white">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-base font-medium text-gray-900">Resume</p>
+                                <a href="https://flowcv.com/resume/7acsitttmp1j" target="_blank" class="mt-1 text-gray-500 hover:text-indigo-600 transition-colors block">
+                                    View My Resume
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Socials -->
+                    <div class="pt-4">
+                        <h4 class="text-lg font-semibold text-gray-900 mb-4">Follow Me</h4>
+                        <div class="flex space-x-4">
+                            <!-- LinkedIn -->
+                            <a href="https://www.linkedin.com/in/harshalsp0011" target="_blank" class="h-10 w-10 rounded-lg bg-indigo-600 text-white flex items-center justify-center hover:bg-indigo-700 transition-colors shadow-md">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                            </a>
+                            <!-- GitHub -->
+                            <a href="https://github.com/harshalsp0011" target="_blank" class="h-10 w-10 rounded-lg bg-indigo-600 text-white flex items-center justify-center hover:bg-indigo-700 transition-colors shadow-md">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Form -->
+                <div class="bg-white rounded-xl shadow-lg p-8 border border-gray-100">
+                    <!-- 
+                        IMPORTANT: To receive emails, you must:
+                        1. Go to https://formspree.io/
+                        2. Create a free account and a new form.
+                        3. Replace "PLACE_YOUR_FORMSPREE_ID_HERE" in the action="" below with your unique Formspree ID (e.g., f/mqkzyqwz).
+                    -->
+                    <form action="https://formspree.io/f/xnnevggz" method="POST" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                                <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 bg-white" placeholder="Your name">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 bg-white" placeholder="your.email@example.com">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                            <input type="text" id="subject" name="subject" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 bg-white" placeholder="What's this about?">
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                            <textarea id="message" name="message" rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 bg-white" placeholder="Tell me about your project or opportunity..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg transition-colors shadow-sm">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-auto">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <p class="text-center text-sm text-gray-500">&copy; <span id="year"></span> Analytics Portfolio. Built for Power BI.</p>
+        </div>
+    </footer>
+
+    <script>
+        // ---------------------------------------------------------
+        //  CONFIGURATION: Add your dashboards here!
+        // ---------------------------------------------------------
+        const projects = [
+            {
+                id: 'kpi-report',
+                title: 'KPI Performance Report',
+                shortDesc: 'Interactive analysis of orders, revenue, and profit trends.',
+                embedUrl: 'https://app.powerbi.com/view?r=eyJrIjoiNmVkY2E2YjctMGUyNi00N2ZiLWFhNWYtMmQyYjMwZmVhOGI0IiwidCI6Ijk2NDY0YThhLWY4ZWQtNDBiMS05OWUyLTVmNmI1MGEyMDI1MCIsImMiOjN9',
+                fullDescription: `
+                    <div class="space-y-4">
+                        <p class="text-lg font-medium text-gray-800">
+                            <strong>Project Summary:</strong> I built this interactive KPI report to track key business metrics and identify high-level trends using Power BI Desktop.
+                        </p>
+                        
+                        <div class="mt-4">
+                            <h3 class="font-bold text-gray-900 mb-2">My Process & Contributions:</h3>
+                            <ul class="list-disc list-inside space-y-3 text-gray-600">
+                                <li>
+                                    <strong class="text-indigo-700">Data Connection & Preparation:</strong> 
+                                    I connected to raw source data files and conducted comprehensive profiling and QA tasks to ensure data accuracy before analysis.
+                                </li>
+                                <li>
+                                    <strong class="text-indigo-700">Data Modeling:</strong> 
+                                    I designed a robust relational model by defining specific relationships between fact and dimension tables. I also optimized the schema by creating hierarchies and adjusting model properties.
+                                </li>
+                                <li>
+                                    <strong class="text-indigo-700">DAX & Calculations:</strong> 
+                                    To enable deeper analysis, I enhanced the data model by defining custom measures and calculated fields using DAX formulas.
+                                </li>
+                                <li>
+                                    <strong class="text-indigo-700">Visualization:</strong> 
+                                    I designed the final interactive report to visualize orders, revenue, and profit, allowing users to analyze performance over time and across different product categories.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                `,
+                tools: ['Power BI', 'DAX', 'Data Modeling', 'QA Profiling'],
+                icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z'
+            },
+            {
+                id: 'placeholder-sales',
+                title: 'Global Sales Overview (Placeholder)',
+                shortDesc: 'Coming Soon: A future dashboard project will be displayed here.',
+                // Using the same URL as a placeholder until you have a new one
+                embedUrl: 'https://app.powerbi.com/view?r=eyJrIjoiNmVkY2E2YjctMGUyNi00N2ZiLWFhNWYtMmQyYjMwZmVhOGI0IiwidCI6Ijk2NDY0YThhLWY4ZWQtNDBiMS05OWUyLTVmNmI1MGEyMDI1MCIsImMiOjN9', 
+                fullDescription: `
+                    <p class="mb-4">This section is currently a placeholder.</p>
+                    <p>When the next dashboard is ready (e.g., Sales Data, HR Analytics, or Marketing trends), it will be uploaded here with its specific project details.</p>
+                `,
+                tools: ['Coming Soon'],
+                icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z'
+            }
+        ];
+
+        // ---------------------------------------------------------
+        //  APP LOGIC
+        // ---------------------------------------------------------
+        
+        const appRoot = document.getElementById('app-root');
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // View 1: Home / Gallery
+        function renderHome() {
+            let html = `
+                <div class="text-center mb-12">
+                    <h1 class="text-4xl font-extrabold text-gray-900 tracking-tight sm:text-5xl mb-4">
+                        Data Analytics Portfolio
+                    </h1>
+                    <p class="max-w-2xl mx-auto text-xl text-gray-500">
+                        A collection of interactive Power BI dashboards and business intelligence projects.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            `;
+
+            projects.forEach(p => {
+                html += `
+                    <div class="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow cursor-pointer flex flex-col h-full" onclick="renderProject('${p.id}')">
+                        <div class="h-3 bg-indigo-500 w-full"></div>
+                        <div class="p-6 flex-grow">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="p-2 bg-indigo-50 rounded-lg">
+                                    <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${p.icon}"></path></svg>
+                                </div>
+                                <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Dashboard</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">${p.title}</h3>
+                            <p class="text-gray-600 text-sm line-clamp-3">${p.shortDesc}</p>
+                        </div>
+                        <div class="bg-gray-50 px-6 py-4 border-t border-gray-100">
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                ${p.tools.slice(0, 3).map(t => `<span class="px-2 py-1 bg-white border border-gray-200 rounded text-xs text-gray-600">${t}</span>`).join('')}
+                            </div>
+                            <span class="text-indigo-600 text-sm font-medium hover:text-indigo-800 flex items-center">
+                                View Dashboard <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                            </span>
+                        </div>
+                    </div>
+                `;
+            });
+
+            html += `</div>`;
+            appRoot.innerHTML = html;
+            window.scrollTo(0, 0);
+        }
+
+        // View 2: Project Detail
+        function renderProject(id) {
+            const project = projects.find(p => p.id === id);
+            if (!project) return renderHome();
+
+            const toolsHtml = project.tools.map(t => 
+                `<span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-indigo-50 text-indigo-700 border border-indigo-100">${t}</span>`
+            ).join('');
+
+            const html = `
+                <button onclick="renderHome()" class="mb-6 flex items-center text-gray-500 hover:text-indigo-600 transition-colors">
+                    <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    Back to Portfolio
+                </button>
+
+                <div class="mb-6">
+                    <h1 class="text-3xl font-bold text-gray-900">${project.title}</h1>
+                    <p class="mt-2 text-lg text-gray-600">${project.shortDesc}</p>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg border border-gray-200 p-4 mb-12">
+                    <div class="iframe-container bg-gray-100">
+                        <iframe title="${project.title}" src="${project.embedUrl}" frameborder="0" allowFullScreen="true"></iframe>
+                    </div>
+                    <div class="mt-4 flex justify-between items-center text-sm text-gray-500 px-2">
+                        <div class="flex items-center space-x-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span>Interact with report to filter data</span>
+                        </div>
+                        <button onclick="toggleFullscreen()" class="text-indigo-600 hover:text-indigo-800 font-medium flex items-center">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path></svg>
+                            Full Screen
+                        </button>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="lg:col-span-2 space-y-6">
+                        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                            <h2 class="text-xl font-bold text-gray-900 mb-4">Project Overview</h2>
+                            <div class="text-gray-600 leading-relaxed space-y-4">
+                                ${project.fullDescription}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                            <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">Tech Stack</h3>
+                            <div class="flex flex-wrap gap-2">
+                                ${toolsHtml}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            appRoot.innerHTML = html;
+            window.scrollTo(0, 0);
+        }
+
+        function toggleFullscreen() {
+            const elem = document.querySelector('.iframe-container iframe');
+            if (elem && elem.requestFullscreen) elem.requestFullscreen();
+            else if (elem && elem.webkitRequestFullscreen) elem.webkitRequestFullscreen();
+            else if (elem && elem.msRequestFullscreen) elem.msRequestFullscreen();
+        }
+
+        // New function to handle smooth scrolling
+        function scrollToContact() {
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Initialize App
+        renderHome();
+
+    </script>
+</body>
+</html>
